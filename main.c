@@ -9,7 +9,7 @@ int main(void)
 	int exit = 1;
 	char *input;
 
-	while (1)
+	while (exit)
 	{
 		_putchar('$');
 		_putchar(':');
