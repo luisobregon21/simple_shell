@@ -9,7 +9,7 @@
 
 int _putchar(char c);
 char *userinput(void);
-//strncmp function - Luis
+int _strcmp(char *s1, char *s2);
 //2d array converter function - Joahnne
 //input validator function
 //path finder function

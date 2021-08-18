@@ -6,12 +6,20 @@
 
 int main(void)
 {
+	int exit = 1;
 	char *input;
-	while(1)
+
+	while (1)
 	{
 		_putchar('$');
 		_putchar(':');
 		input = userinput();
+		/* adding string compare*/
+		if (_strcmp(input, "exit") == 0)
+		{
+			exit = 0;
+			return (0);
+		}
 	}
 	return (0);
 }
