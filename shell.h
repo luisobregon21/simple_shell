@@ -15,7 +15,7 @@ int _strcmp(char *s1, char *s2);
 //path finder function
 //concatenator function
 //forking function
-//executor
+void executor(char **user_input);
 //The freer
 
 #endif
