@@ -27,7 +27,7 @@ int main(void)
 		/* adding string compare*/
 
 		// add the n part of strncmp
-		if (_strcmp(input, "exit") == 0)
+		if (_strcmp(input, "exit", 4) == 0)
 		{
 			exit = 0;
 			return (0);

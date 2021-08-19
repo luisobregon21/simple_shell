@@ -10,7 +10,7 @@
 
 int _putchar(char c);
 char *userinput(void);
-int _strcmp(char *s1, char *s2);
+int _strcmp(const char *s1, const char *s2, size_t n);
 //2d array converter function - Joahnne
 //path finder function
 void input_validator(char **usr_input); /*we need to add char **path*/
