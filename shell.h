@@ -12,10 +12,9 @@ int _putchar(char c);
 char *userinput(void);
 int _strcmp(char *s1, char *s2);
 //2d array converter function - Joahnne
-//input validator function
 //path finder function
+void input_validator(char **usr_input); /*we need to add char **path*/
 char *concatenator(char *path, char *userinput);
-//forking function
 void executor(char **user_input);
 //The freer
 

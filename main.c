@@ -10,6 +10,7 @@ int main(void)
 	int exit = 1;
 	char *input;
 	char **user_input = NULL;
+
 	while (exit)
 	{
 		_putchar('$');
@@ -34,7 +35,7 @@ int main(void)
 			 *pass the return to our executor function
 			 */
 			user_input = split_string(input);
-			executor(user_input);
+			input_validator(user_input);
 		}
 	}
 	return (0);
