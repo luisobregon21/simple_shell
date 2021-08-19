@@ -13,7 +13,7 @@ int _strcmp(char *s1, char *s2);
 //2d array converter function - Joahnne
 //input validator function
 //path finder function
-//concatenator function
+char *concatenator(char *path, char *userinput);
 //forking function
 void executor(char **user_input);
 //The freer
