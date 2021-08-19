@@ -13,15 +13,20 @@ int main(void)
 
 	while (exit)
 	{
-		_putchar('$');
-		_putchar(':');
 		if (!isatty(STDIN_FILENO))
 		{
 			exit = 0;
 		}
+		else
+		{
+			_putchar('$');
+			_putchar(' ');
+		}
 
 		input = userinput();
 		/* adding string compare*/
+
+		// add the n part of strncmp
 		if (_strcmp(input, "exit") == 0)
 		{
 			exit = 0;
