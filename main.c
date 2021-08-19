@@ -14,6 +14,11 @@ int main(void)
 	{
 		_putchar('$');
 		_putchar(':');
+		if (!isatty(STDIN_FILENO))
+		{
+			exit = 0;
+		}
+
 		input = userinput();
 		/* adding string compare*/
 		if (_strcmp(input, "exit") == 0)
