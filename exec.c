@@ -9,13 +9,18 @@
 void executor(char **user_input)
 {
 	int child;
+	int status;
 
 	child = fork();
 	if (child == 0)
 	{
 		if(execve(user_input[0], user_input, NULL) == -1)
 		{
-			perror("Error: this sheit ain't no working m8");
+			perror("No such file or directory");
 		}
+	}
+	else
+	{
+		wait(&status);
 	}
 }
