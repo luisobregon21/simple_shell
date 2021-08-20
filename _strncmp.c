@@ -12,7 +12,7 @@
  * if string 2 is larger, the return value is negative.
  */
 
-int _strcmp(const char *s1, const char *s2, size_t n)
+int _strncmp(const char *s1, const char *s2, size_t n)
 {
 	int index;
 
