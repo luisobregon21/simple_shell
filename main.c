@@ -5,7 +5,7 @@ char **split_string(char * input);
  * Return: 0 on success.
  */
 
-int main(void)
+int main(int ac __attribute__((unused)), char **av __attribute__((unused)), char **env)
 {
 	int exit = 1;
 	char *input;
@@ -27,12 +27,16 @@ int main(void)
 		/* adding string compare*/
 
 		// add the n part of strncmp
-		if (_strcmp(input, "exit", 4) == 0)
+		if (_strncmp(input, "exit", 4) == 0)
 		{
 			exit = 0;
 			return (0);
 		}
 		/*else we convert it into a 2d arr*/
+		else if (_strncmp(input, "env", 3) == 0)
+		{
+			envprinter(env);
+		}
 		else
 		{
 			/*
