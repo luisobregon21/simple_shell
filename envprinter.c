@@ -10,7 +10,7 @@ void envprinter(char **env)
 
 	for (idx = 0; env[idx] != NULL; idx++)
 	{
-		for(idx2 = 0; env[idx][idx2] != '\0'; idx2++)
+		for (idx2 = 0; env[idx][idx2] != '\0'; idx2++)
 		{
 			_putchar(env[idx][idx2]);
 		}
