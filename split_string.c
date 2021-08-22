@@ -42,6 +42,6 @@ char **split_string(char *string)
 		token_array[idx] = token;
 		token = strtok(NULL, " ");
 	}
-	token_array[idx + 1] = NULL;
+	token_array[idx] = NULL;
 	return (token_array);
 }
