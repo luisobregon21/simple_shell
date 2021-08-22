@@ -42,7 +42,7 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		else
 		{
 			user_input = split_string(input);
-			input_validator(user_input);
+			input_validator(user_input, path);
 		}
 	}
 	return (0);
