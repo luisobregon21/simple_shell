@@ -4,8 +4,9 @@
 #include <stdlib.h>
 
 /**
- * just convert this function to work for any string...
- *
+ * *split_string - Converts any string to 2D array.
+ * @string: contain the user input.
+ * Return: The 2D array.
  *
  */
 char **split_string(char *string)
@@ -24,13 +25,20 @@ char **split_string(char *string)
 	count += 2;
 
 	token_array = malloc(sizeof(char *) * count);
+	if (token_array == NULL)
+	{
+		return (NULL);
+	}
 	token = strtok(string, " ");
 
 	for (idx = 0; token != NULL; idx++)
 	{
-		// we can't use strlen... make own _strlen
 		lenght = _strlen(token);
 		token_array[idx] = malloc(sizeof(char) * (lenght + 1));
+		if (token_array[idx] == NULL)
+		{
+			return (NULL);
+		}
 		token_array[idx] = token;
 		token = strtok(NULL, " ");
 	}
