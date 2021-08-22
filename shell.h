@@ -12,7 +12,8 @@ int _putchar(char c);
 char *userinput(void);
 int _strncmp(const char *s1, const char *s2, size_t n);
 void envprinter(char **env);
-//2d array converter function - Joahnne
+char **split_string(char *string);
+int _strlen(char *string);
 //path finder function
 void input_validator(char **usr_input); /*we need to add char **path*/
 char *concatenator(char *path, char *userinput);
