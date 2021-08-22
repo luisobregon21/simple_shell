@@ -40,6 +40,6 @@ char **path_to_arr(char **env)
 		}
 		path[i] = token;
 	}
-	path[i + 1] = NULL;
+	path[i] = NULL;
 	return (path);
 }
