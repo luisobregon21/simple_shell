@@ -1,15 +1,20 @@
 #include "shell.h"
 
 /**
- * main - executes commands based on user input.
+ * main - executes commands based on user input
+ * @ac: unused
+ * @av: unused
+ * @env: enviroment
  * Return: 0 on success.
  */
 
-int main(int ac __attribute__((unused)), char **av __attribute__((unused)), char **env)
+int main(int ac, char **av __attribute__((unused)), char **env)
 {
+	(void) ac;
 	int exit = 1;
 	char *input;
 	char **user_input = NULL;
+	char **path = path_to_arr(env);
 
 	while (exit)
 	{
