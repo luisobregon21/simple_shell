@@ -53,4 +53,24 @@ char *userinput(void)
 	sentence[len - 1] = '\0';
 	return (sentence);
 }
+/**
+ * *_strcpy - function
+ * @dest: parameter
+ * @src: parameter
+ * Return: char
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int idx, len;
+
+	len = _strlen(src);
+
+	for (idx = 0 ; idx <= len ; idx++)
+	{
+		dest[idx] = src[idx];
+	}
+
+	return (dest);
+}
 

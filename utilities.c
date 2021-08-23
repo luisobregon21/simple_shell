@@ -35,7 +35,7 @@ char **split_string(char *string)
 		{
 			return (NULL);
 		}
-		token_array[idx] = token;
+		_strcpy(token_array[idx], token);
 		token = strtok(NULL, " ");
 	}
 	token_array[idx] = NULL;
@@ -80,7 +80,8 @@ char **path_to_arr(char **env)
 		{
 			return (NULL);
 		}
-		path[i] = token;
+		_strcpy(path[i], token);
+	//	path[i] = token;
 	}
 	path[i] = NULL;
 	return (path);

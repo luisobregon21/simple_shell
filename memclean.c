@@ -9,7 +9,6 @@ void memclean(char **arr)
 	int i;
 	for (i = 0; arr[i] != NULL; i++)
 	{
-		printf("free %i times\n", i);
 		free(arr[i]);
 	}
 	free(arr);

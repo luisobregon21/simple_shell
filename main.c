@@ -11,16 +11,16 @@
 int main(int ac, char **av __attribute__((unused)), char **env)
 {
 	(void) ac;
-	int exit = 1;
+	int flag = 1;
 	char *input;
 	char **user_input = NULL;
 	char **path = path_to_arr(env);
 
-	while (exit)
+	while (flag)
 	{
 		if (!isatty(STDIN_FILENO))
 		{
-			exit = 0;
+			flag = 0;
 		}
 		else
 		{
@@ -29,16 +29,19 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		}
 
 		input = userinput();
+		if (input == NULL)
+			continue;
 
 		if (_strncmp(input, "exit", 4) == 0)
 		{
-			exit = 0;
-			free(path);
-			return (0);
+			free(input);
+			memclean(path);
+			exit(0);
 		}
 		else if (_strncmp(input, "env", 3) == 0)
 		{
 			envprinter(env);
+			free(input);
 		}
 		else
 		{
@@ -46,5 +49,6 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 			input_validator(user_input, path);
 		}
 	}
+	/*we need to free something here methinks*/
 	return (0);
 }

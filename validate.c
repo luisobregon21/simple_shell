@@ -15,7 +15,10 @@ void executor(char **user_input)
 	{
 		if (execve(user_input[0], user_input, NULL) == -1)
 		{
+			memclean(user_input);
 			perror("not found");
+			//free in the main this shit
+			exit(127);
 		}
 	}
 	else
@@ -44,11 +47,14 @@ void input_validator(char **usr_input, char **path)
 			full_path = concatenator(full_path, usr_input[0]);
 			if (stat(full_path, &st) == 0)
 			{
-				usr_input[0] = full_path;
+				_strcpy(usr_input[0], full_path);
+				free(full_path);
+				/*we need to free usr_input inside executor)*/
 				executor(usr_input);
 				return;
 			}
 			else
+				free(full_path);
 				continue;
 		}
 	}
@@ -66,6 +72,7 @@ void input_validator(char **usr_input, char **path)
 		 *we need an error handler function
 		 */
 		/*error_handler()*/
+		/*free somthing? maybe? xD*/
 		perror(usr_input[0]);
 	}
 }
