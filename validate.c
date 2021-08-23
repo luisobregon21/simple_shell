@@ -32,5 +32,15 @@ void input_validator(char **usr_input, char **path)
 	if (stat(usr_input[0], &st) == 0)
 		executor(usr_input);
 	else
-		perror("ayy");
+	{
+		/*we are missing correct output for error
+		 *for non interactive
+		 *it should print argv[0]: usr_input[0]: not found
+		 *for interactive
+		 *it should print usr_input[0]: not found
+		 *we need an error handler function
+		 */
+		/*error_handler()*/
+		perror(usr_input[0]);
+	}
 }
