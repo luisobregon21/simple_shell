@@ -19,5 +19,6 @@ char *concatenator(char *path, char *userinput)
 		path[index] = userinput[index2];
 		index++;
 	}
+	path[index] = '\0';
 	return (path);
 }
