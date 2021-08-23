@@ -9,15 +9,26 @@
 
 char *concatenator(char *path, char *userinput)
 {
-	int index, index2;
+	int len1, len2, sum;
+	char *concat;
 
-	for (index = 0; path[index] != '\0'; index++)
-	;
+	len1 = _strlen(path);
+	len2 = _strlen(userinput);
+	sum = len1 + len2;
 
-	for (index2 = 0; userinput[index2] != '\0'; index2++)
+	concat = malloc(sizeof(char) * (sum + 1));
+
+
+	for (len1 = 0; path[len1] != '\0'; len1++)
 	{
-		path[index] = userinput[index2];
-		index++;
+		concat[len1] = path[len1];
 	}
-	return (path);
+
+	for (len2 = 0; userinput[len2] != '\0'; len2++)
+	{
+		concat[len1] = userinput[len2];
+		len1++;
+	}
+	concat[sum] = '\0';
+	return (concat);
 }
