@@ -29,6 +29,11 @@ char *concatenator(char *path, char *userinput)
 		concat[len1] = userinput[len2];
 		len1++;
 	}
+<<<<<<< HEAD
 	concat[sum] = '\0';
 	return (concat);
+=======
+	path[index] = '\0';
+	return (path);
+>>>>>>> 0442800461589a2ef02dce544537e8002f59b380
 }
