@@ -1,4 +1,28 @@
 #include "shell.h"
+/**
+ * executor - recieves user input and executes
+ * @user_input: two dimensional array with executable name and arguments
+ *
+ */
+
+void executor(char **user_input)
+{
+	int child;
+	int status;
+
+	child = fork();
+	if (child == 0)
+	{
+		if (execve(user_input[0], user_input, NULL) == -1)
+		{
+			perror("not found");
+		}
+	}
+	else
+	{
+		wait(&status);
+	}
+}
 
 /**
  *input_validator - validates if user input is an executable
@@ -12,13 +36,13 @@ void input_validator(char **usr_input, char **path)
 	int i, j;
 	char *full_path;
 
-	if(stat(usr_input[0], &st) != 0)
+	if (stat(usr_input[0], &st) != 0)
 	{
 		for (i = 0; path[i] != NULL; i++)
 		{
 			full_path = concatenator(path[i], "/");
 			full_path = concatenator(full_path, usr_input[0]);
-			if(stat(full_path, &st) == 0)
+			if (stat(full_path, &st) == 0)
 			{
 				usr_input[0] = full_path;
 				executor(usr_input);
@@ -33,7 +57,8 @@ void input_validator(char **usr_input, char **path)
 		executor(usr_input);
 	else
 	{
-		/*we are missing correct output for error
+		/**
+		 *we are missing correct output for error
 		 *for non interactive
 		 *it should print argv[0]: usr_input[0]: not found
 		 *for interactive

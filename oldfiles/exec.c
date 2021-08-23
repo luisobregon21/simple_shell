@@ -16,7 +16,7 @@ void executor(char **user_input)
 	{
 		if(execve(user_input[0], user_input, NULL) == -1)
 		{
-			perror("No such file or directory");
+			perror("not found");
 		}
 	}
 	else

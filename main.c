@@ -33,6 +33,7 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		if (_strncmp(input, "exit", 4) == 0)
 		{
 			exit = 0;
+			free(path);
 			return (0);
 		}
 		else if (_strncmp(input, "env", 3) == 0)
