@@ -47,8 +47,11 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		{
 			user_input = split_string(input);
 			input_validator(user_input, path);
+			free(input);
+			memclean(user_input);
 		}
 	}
 	/*we need to free something here methinks*/
+	//memclean(path);
 	return (0);
 }
