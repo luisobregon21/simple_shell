@@ -18,25 +18,34 @@ This project will place your C language knowleged into practice after
 ### Functions
 Prototypes | Description
 ----------- | -------------
-**loop** | Start the main loop to our shell.
+**strncmp** | Function that compares two strings.
 **_putchar** | Prints a character.
-**userinput** | 
+**userinput** | Reads the user input.
+**envprinter** | Function that prints the enviroment.
+**split_string** | Function that tokenizes a string's delimiter.
+**_strlen** | Function gets the length of a string.
+**strcpy** | Function copies the string pointed to.
+**path_to_arr** | Function gets the path of an array.
+**input_validator** | Reads the user's command line input.
+**concatinator** | Function that concatinates strings.
+**executor** | Function executes arguments in the command prompt line.
+**memclean** | Function to free all arguments.
 
 ### Files
 This is the list of files used to compile our shell.
 
 * [memclean.c](https://github.com/luisobregon21/simple_shell/blob/master/memclean.c)
 Function to free passed arguments or any leaks.
-* [main.c] (https://github.com/luisobregon21/simple_shell/blob/master/main.c)
+* [main.c](https://github.com/luisobregon21/simple_shell/blob/master/main.c)
 First function in our program that is executed when it begins executing,
 nevertheless, it's not the first function executed.
-* [strmanipulation.c] (https://github.com/luisobregon21/simple_shell/blob/master/strmanipulation.c)
+* [strmanipulation.c](https://github.com/luisobregon21/simple_shell/blob/master/strmanipulation.c)
 Function that will make the shell run seamlessly under the hood.
-* [utilities.c] (https://github.com/luisobregon21/simple_shell/blob/master/utilities.c)
+* [utilities.c](https://github.com/luisobregon21/simple_shell/blob/master/utilities.c)
 Function helps the shell's enviroment.
-* [validate.c] (https://github.com/luisobregon21/simple_shell/blob/master/utilities.c)
+* [validate.c](https://github.com/luisobregon21/simple_shell/blob/master/utilities.c)
 Functions to execute and validate input strings.
-* [shell.h] (https://github.com/luisobregon21/simple_shell/blob/master/shell.h)
+* [shell.h](https://github.com/luisobregon21/simple_shell/blob/master/shell.h)
 Header file of functions where prototypes and libraries are all stored.
 
 #### REQUIREMENTS
@@ -59,7 +68,7 @@ Header file of functions where prototypes and libraries are all stored.
 ##### Non-interactive
 *Command*
 ```
-echo "/bin/ls" | ./hsh
+echo "/bin/ls" | ./a.out
 ```
 *Output*
 ```
@@ -70,19 +79,22 @@ shell.h
 ##### Interactive
 *Command*
 ```
-./hsh
+./a.out
 ```
 Once the prompt `($)` is on display, you can type in the command line,
 enter
-**Ex** - `/bin/ls`
+**Example input** - `/bin/ls`
 
 *Output*
 ```
-files....
+AUTHORS    compile     memclean.c  strmanipulation.c  validate.c
+README.md  compile_valgring  oldfiles test
+a.out   main.c     shell.h utilities.c
+
 ```
 
 
 
 <p align="center"> AUTHORS </p>
-<p align="center">
-    <h2 align="center">Made by Gillermo Lorca, Johanne Lopez, and Luis Obregon.</h2>
+
+<h2 align="center">Made by Gillermo Lorca, Johanne Lopez, and Luis Obregon.</h2>
