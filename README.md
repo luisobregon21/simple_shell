@@ -4,15 +4,15 @@
      style="float: left; margin-right: 10px;">
 </p>
 
-## SIMPLE SHELL 🐚
+## SIMPLE SHELL 🐚🐚🐚
 Holberton's final project is designing, and writing a UNIX operating system.
 This project will place your C language knowleged into practice after
 3 months of learning low-level-programming.
 
 #### Follow the steps bellow to compile.
  - `cd simple_shell`
- - `gcc -Wall -Werror -Wextra -pedantic *.c -o shell`
- - `./shell`
+ - `gcc -Wall -Werror -Wextra -pedantic *.c`
+ - `./a.out`
 
 
 ### Functions
@@ -32,7 +32,7 @@ Prototypes | Description
 **memclean** | Function to free all arguments.
 
 ### Files
-This is the list of files used to compile our shell.
+This is the list of files used to build and run our shell.
 
 * [memclean.c](https://github.com/luisobregon21/simple_shell/blob/master/memclean.c)
 Function to free passed arguments or any leaks.
@@ -48,7 +48,7 @@ Functions to execute and validate input strings.
 * [shell.h](https://github.com/luisobregon21/simple_shell/blob/master/shell.h)
 Header file of functions where prototypes and libraries are all stored.
 
-#### REQUIREMENTS
+#### REQUIREMENTS (Rules)
 
 * Allowed editors: *vi*, *vim*, *emacs*
 * All your files will be compiled on Ubuntu 14.04 LTS.
@@ -72,7 +72,9 @@ echo "/bin/ls" | ./a.out
 ```
 *Output*
 ```
-shell.h
+AUTHORS    a.out    compile_valgring  memclean.c  shell.h     test  validate.c
+README.md  compile  main.c  oldfiles  strmanipulation.c  utilities.c
+
 ```
 <hr>
 
@@ -97,4 +99,4 @@ a.out   main.c     shell.h utilities.c
 
 <p align="center"> AUTHORS </p>
 
-<h2 align="center">Made by Gillermo Lorca, Johanne Lopez, and Luis Obregon.</h2>
+<h3 align="center">Made by Gillermo Lorca, Johanne Lopez, and Luis Obregon.</h3>
