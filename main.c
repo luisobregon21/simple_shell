@@ -54,9 +54,13 @@ int attycheck(int flag)
 	if (!isatty(STDIN_FILENO))
 	{
 		flag = 0;
+		return (flag);
 	}
 	else
 	{
 		_putchar('$');
+		_putchar(' ');
 	}
+
+	return (flag);
 }

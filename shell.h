@@ -7,7 +7,6 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <string.h>
-#include <signal.h>
 
 int attycheck(int);
 int _putchar(char c);
