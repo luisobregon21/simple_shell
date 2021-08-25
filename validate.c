@@ -2,7 +2,7 @@
 /**
  * executor - recieves user input and executes
  * @user_input: two dimensional array with executable name and arguments
- *
+ * @full_path: full path with command
  */
 
 void executor(char *full_path, char **user_input)
@@ -62,19 +62,9 @@ void input_validator(char **usr_input, char **path)
 	}
 
 	if (stat(usr_input[0], &st) == 0)
-		executor(usr_input[0] ,usr_input);
+		executor(usr_input[0], usr_input);
 	else
 	{
-		/**
-		 *we are missing correct output for error
-		 *for non interactive
-		 *it should print argv[0]: usr_input[0]: not found
-		 *for interactive
-		 *it should print usr_input[0]: not found
-		 *we need an error handler function
-		 */
-		/*error_handler()*/
-		/*free somthing? maybe? xD*/
 		perror(usr_input[0]);
 	}
 }

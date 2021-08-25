@@ -14,21 +14,11 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 	char *input;
 	char **user_input = NULL;
 	char **path = path_to_arr(env);
-
 	(void) ac;
 
 	while (flag)
 	{
-		if (!isatty(STDIN_FILENO))
-		{
-			flag = 0;
-		}
-		else
-		{
-			_putchar('$');
-			_putchar(' ');
-		}
-
+		flag = attycheck(flag);
 		input = userinput();
 		if (input == NULL)
 			continue;
@@ -52,7 +42,22 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 			memclean(user_input);
 		}
 	}
-	/*we need to free something here methinks*/
-	/*memclean(path);*/
 	return (0);
+}
+/**
+ * attycheck - checks for interactive and non-interactive mode.
+ * @flag: turns off flag.
+ * Return: wether flag turns on or off.
+ */
+int attycheck(int flag)
+{
+	if (!isatty(STDIN_FILENO))
+	{
+		flag = 0;
+	}
+	else
+	{
+		_putchar('$');
+		_putchar(' ');
+	}
 }
