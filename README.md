@@ -91,7 +91,7 @@ enter
 ```
 AUTHORS    compile     memclean.c  strmanipulation.c  validate.c
 README.md  compile_valgring  oldfiles test
-a.out   main.c     shell.h utilities.c
+a.out   main.c     shell.h utilities.c 
 
 ```
 
