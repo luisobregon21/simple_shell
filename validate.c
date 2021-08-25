@@ -5,7 +5,7 @@
  *
  */
 
-void executor(char **user_input)
+void executor(char *full_path, char **user_input)
 {
 	int child;
 	int status;
@@ -13,13 +13,13 @@ void executor(char **user_input)
 	child = fork();
 	if (child == 0)
 	{
-		if (execve(user_input[0], user_input, NULL) == -1)
+		if (execve(full_path, user_input, NULL) == -1)
 		{
 			perror("not found");
 			memclean(user_input);
-			/*free in the main this shit*/
 			exit(127);
 		}
+		free(full_path);
 		memclean(user_input);
 	}
 	else
@@ -49,10 +49,8 @@ void input_validator(char **usr_input, char **path)
 			free(first_concat);
 			if (stat(full_path, &st) == 0)
 			{
-				_strcpy(usr_input[0], full_path);
+				executor(full_path, usr_input);
 				free(full_path);
-				/*we need to free usr_input inside executor)*/
-				executor(usr_input);
 				return;
 			}
 			else
@@ -64,7 +62,7 @@ void input_validator(char **usr_input, char **path)
 	}
 
 	if (stat(usr_input[0], &st) == 0)
-		executor(usr_input);
+		executor(usr_input[0] ,usr_input);
 	else
 	{
 		/**
