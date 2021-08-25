@@ -13,7 +13,7 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 	int flag = 0;
 	char *input;
 	char **user_input = NULL;
-	char **path = NULL;
+	char **path = path_to_arr(env);
 	(void) ac;
 
 	do {
@@ -25,6 +25,7 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		if (_strncmp(input, "exit", 4) == 0)
 		{
 			safe_free(&input);
+			memclean(path);
 			exit(0);
 		}
 		else if (_strncmp(input, "env", 3) == 0)
@@ -35,10 +36,10 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		else
 		{
 			user_input = split_string(input);
-			path = path_to_arr(env);
 			input_validator(user_input, path);
 			safe_free(&input);
 			memclean(user_input);
+
 		}
 		if (flag == 0)
 			memclean(path);
