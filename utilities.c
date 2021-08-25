@@ -81,7 +81,7 @@ char **path_to_arr(char **env)
 			return (NULL);
 		}
 		_strcpy(path[i], token);
-	//	path[i] = token;
+	/*path[i] = token;*/
 	}
 	path[i] = NULL;
 	return (path);

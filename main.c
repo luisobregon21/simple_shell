@@ -10,11 +10,12 @@
 
 int main(int ac, char **av __attribute__((unused)), char **env)
 {
-	(void) ac;
 	int flag = 1;
 	char *input;
 	char **user_input = NULL;
 	char **path = path_to_arr(env);
+
+	(void) ac;
 
 	while (flag)
 	{
@@ -52,6 +53,6 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		}
 	}
 	/*we need to free something here methinks*/
-	//memclean(path);
+	/*memclean(path);*/
 	return (0);
 }

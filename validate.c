@@ -17,7 +17,7 @@ void executor(char **user_input)
 		{
 			perror("not found");
 			memclean(user_input);
-			//free in the main this shit
+			/*free in the main this shit*/
 			exit(127);
 		}
 		memclean(user_input);
@@ -37,7 +37,7 @@ void executor(char **user_input)
 void input_validator(char **usr_input, char **path)
 {
 	struct stat st;
-	int i, j;
+	int i;
 	char *full_path, *first_concat;
 
 	if (stat(usr_input[0], &st) != 0)
@@ -56,8 +56,10 @@ void input_validator(char **usr_input, char **path)
 				return;
 			}
 			else
+			{
 				free(full_path);
 				continue;
+			}
 		}
 	}
 
