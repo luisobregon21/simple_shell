@@ -1,0 +1,78 @@
+<h1 style="margin-bottom:0"> nf (1) - Linux Simple Man Page</h1>
+<h2 class="sub-title">nf: A simple shell system</h2>
+
+.TH man_1_simple_shell
+
+.SH NAME
+.B simple_shell - C15 Holberton's Simple Shell Project
+- Simple UNIX command line interpreter.
+
+-SH Introduction
+.PP
+The simple shell is an application that interacts with the your computer.
+The user in the shell can run programs and also redirect the output of a file.
+
+.SH SYNOPSIS
+.B simple_shell format "[options] [command_string | argumment]"
+
+
+.SH DESCRIPTION
+.PP
+This Shell is a simple UNIX command program that interprets,
+reads commands, and executes them. 
+Once the shell starts it will display the prompt ($) sing, and terminated
+with the 'exit' command.
+
+.SS Invocation
+.PP
+The Simple Shell can be processed both interactive and non-interactive mode.
+It reads and executes received commands in order.
+
+.SS Execution
+.PP
+The shell interprets arguments, reads the command line accordingly in a string.
+The string is then tokenized into elements using the "space" delimiter and
+validates the arguments of that command.
+If the command is valid:
+* It will display a prompt "($)" and wait for the user to type a command.
+The command line always will end with a new line.
+* The prompt is displayed again each time a command has been executed.
+* If an executable cannot be found, it will print an error message and
+display the prompt again.
+
+
+.SS Path Search
+.PP
+To locate a command, the shell first searches if there is an executable by that name.
+If it doesn't find it, it looks for builtin command by that name.
+
+.SS Command Exit Status
+.PP
+Each command has an exit status that affects the behaviour of other shell
+commands. A successfull exit command will be displayed as success,
+and non-zero for failure, or error if indication fails.
+
+Errors that are detected by this simple shell, such as a syntax error, will cause
+the shell to exit with an error message. If the shell is not in
+interactive mode, the execution of the shell file will display error.
+
+.SS ENVIRONMENT
+
+`PATH` The default search path for executables. See the above section Path Search.
+
+.SH BUGS
+If you come across bugs or issues please notify the authors via Holberton email.
+
+.SH AUTHORS
+
+.br
+Guillermo Lorca,
+.B guillermo.lorca@holbertonschool.com
+
+.br
+Johanne lopez,
+.B johanne.lopez@holberton.com
+
+.br
+Luis Obregon,
+.B luis-alexander.obregon-mogollon@holberton.com
