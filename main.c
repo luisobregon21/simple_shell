@@ -30,7 +30,7 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		}
 		else if (_strncmp(input, "env", 3) == 0)
 		{
-			envprinter(env);
+			envprinter(env, path);
 			safe_free(&input);
 		}
 		else

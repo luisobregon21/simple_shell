@@ -13,7 +13,7 @@ int attycheck(int flag);
 int _putchar(char c);
 char *userinput(void);
 int _strncmp(const char *s1, const char *s2, size_t n);
-void envprinter(char **env);
+void envprinter(char **env, char **path);
 char **split_string(char *string);
 int _strlen(char *string);
 char *_strcpy(char *dest, char *src);

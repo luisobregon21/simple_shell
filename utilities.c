@@ -81,26 +81,46 @@ char **path_to_arr(char **env)
 			return (NULL);
 		}
 		_strcpy(path[i], token);
-	/*path[i] = token;*/
 	}
 	path[i] = NULL;
 	return (path);
 }
 /**
- * envprinter - prints all elements of the enviorement
- * @env: the enviorement passed.
+ * envprinter - prints all elements of the enviroment
+ * @env: the enviroment passed.
+ * @path: the path as a 2d array.
  */
-void envprinter(char **env)
+void envprinter(char **env, char **path)
 {
-	int idx, idx2;
+	int idx, idx2, idx3, idx4;
 
 	for (idx = 0; env[idx] != NULL; idx++)
 	{
-		for (idx2 = 0; env[idx][idx2] != '\0'; idx2++)
+		if (_strncmp(env[idx], "PATH", 4) == 0)
 		{
-			_putchar(env[idx][idx2]);
+			for (idx3 = 0; env[idx][idx3] != '\0'; idx3++)
+			{
+				_putchar(env[idx][idx3]);
+			}
+			_putchar('=');
+			for (idx4 = 0; path[idx4] != NULL; idx4++)
+			{
+				for (idx3 = 0; path[idx4][idx3] != '\0'; idx3++)
+				{
+					_putchar(path[idx4][idx3]);
+				}
+				_putchar(':');
+			}
+			_putchar('\n');
 		}
-		_putchar('\n');
+		else
+		{
+			for (idx2 = 0; env[idx][idx2] != '\0'; idx2++)
+			{
+				_putchar(env[idx][idx2]);
+			}
+			_putchar('\n');
+		}
 	}
 }
 /**
