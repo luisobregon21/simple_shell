@@ -7,8 +7,9 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <signal.h>
 
-int attycheck(int);
+int attycheck(int flag, char **path);
 int _putchar(char c);
 char *userinput(void);
 int _strncmp(const char *s1, const char *s2, size_t n);

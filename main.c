@@ -1,5 +1,9 @@
 #include "shell.h"
-
+/*void EOF_handler(char **path, char *input)
+{
+	free(input);
+	memclean(path);
+}*/
 /**
  * main - executes commands based on user input
  * @ac: unused
@@ -10,18 +14,20 @@
 
 int main(int ac, char **av __attribute__((unused)), char **env)
 {
-	int flag = 1;
+	int flag = 0;
 	char *input;
 	char **user_input = NULL;
 	char **path = path_to_arr(env);
 	(void) ac;
 
-	while (flag)
+	do
 	{
-		flag = attycheck(flag);
+		flag = attycheck(flag, path);
 		input = userinput();
 		if (input == NULL)
 			continue;
+
+		/*signal(SIGQUIT, EOF_handler(path, input));*/
 
 		if (_strncmp(input, "exit", 4) == 0)
 		{
@@ -41,7 +47,8 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 			free(input);
 			memclean(user_input);
 		}
-	}
+	} while (flag);
+
 	return (0);
 }
 /**
@@ -49,15 +56,17 @@ int main(int ac, char **av __attribute__((unused)), char **env)
  * @flag: turns off flag.
  * Return: wether flag turns on or off.
  */
-int attycheck(int flag)
+int attycheck(int flag, char **path)
 {
 	if (!isatty(STDIN_FILENO))
 	{
 		flag = 0;
+		memclean(path);
 		return (flag);
 	}
 	else
 	{
+		flag = 1;
 		_putchar('$');
 		_putchar(' ');
 	}
