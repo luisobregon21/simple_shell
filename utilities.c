@@ -109,7 +109,8 @@ void envprinter(char **env, char **path)
 				{
 					_putchar(path[idx4][idx3]);
 				}
-				_putchar(':');
+				if (path[idx4 + 1] != NULL)
+					_putchar(':');
 			}
 			_putchar('\n');
 		}
