@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <signal.h>
 
 int _putchar(char c);
 char *userinput(void);
@@ -18,7 +19,7 @@ char *_strcpy(char *dest, char *src);
 char **path_to_arr(char **env);
 void input_validator(char **usr_input, char **path);
 char *concatenator(char *path, char *userinput);
-void executor(char **user_input);
+void executor(char *full_path, char **user_input);
 void memclean(char **arr);
 
 #endif
