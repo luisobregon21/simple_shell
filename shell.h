@@ -9,7 +9,7 @@
 #include <string.h>
 #include <signal.h>
 
-int attycheck(int flag, char **path);
+int attycheck(int flag);
 int _putchar(char c);
 char *userinput(void);
 int _strncmp(const char *s1, const char *s2, size_t n);

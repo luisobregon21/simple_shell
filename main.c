@@ -17,7 +17,7 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 	(void) ac;
 
 	do {
-		flag = attycheck(flag, path);
+		flag = attycheck(flag);
 		input = userinput();
 		if (input == NULL)
 			continue;
@@ -40,22 +40,21 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 			safe_free(&input);
 			memclean(user_input);
 		}
+		if (flag == 0)
+			memclean(path);
 	} while (flag);
-
 	return (0);
 }
 /**
  * attycheck - checks for interactive and non-interactive mode.
  * @flag: turns off flag.
- * @path: the path found.
  * Return: wether flag turns on or off.
  */
-int attycheck(int flag, char **path)
+int attycheck(int flag)
 {
 	if (!isatty(STDIN_FILENO))
 	{
 		flag = 0;
-		memclean(path);
 	}
 	else
 	{
