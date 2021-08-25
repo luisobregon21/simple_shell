@@ -58,6 +58,5 @@ int attycheck(int flag)
 	else
 	{
 		_putchar('$');
-		_putchar(' ');
 	}
 }
