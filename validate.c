@@ -19,7 +19,7 @@ void executor(char *full_path, char **user_input)
 			memclean(user_input);
 			exit(127);
 		}
-		free(full_path);
+		safe_free(&full_path);
 		memclean(user_input);
 	}
 	else
@@ -46,16 +46,16 @@ void input_validator(char **usr_input, char **path)
 		{
 			first_concat = concatenator(path[i], "/");
 			full_path = concatenator(first_concat, usr_input[0]);
-			free(first_concat);
+			safe_free(&first_concat);
 			if (stat(full_path, &st) == 0)
 			{
 				executor(full_path, usr_input);
-				free(full_path);
+				safe_free(&full_path);
 				return;
 			}
 			else
 			{
-				free(full_path);
+				safe_free(&full_path);
 				continue;
 			}
 		}

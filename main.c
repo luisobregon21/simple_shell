@@ -1,9 +1,5 @@
 #include "shell.h"
-/*void EOF_handler(char **path, char *input)
-{
-	free(input);
-	memclean(path);
-}*/
+
 /**
  * main - executes commands based on user input
  * @ac: unused
@@ -20,31 +16,28 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 	char **path = path_to_arr(env);
 	(void) ac;
 
-	do
-	{
+	do {
 		flag = attycheck(flag, path);
 		input = userinput();
 		if (input == NULL)
 			continue;
 
-		/*signal(SIGQUIT, EOF_handler(path, input));*/
-
 		if (_strncmp(input, "exit", 4) == 0)
 		{
-			free(input);
+			safe_free(&input);
 			memclean(path);
 			exit(0);
 		}
 		else if (_strncmp(input, "env", 3) == 0)
 		{
 			envprinter(env);
-			free(input);
+			safe_free(&input);
 		}
 		else
 		{
 			user_input = split_string(input);
 			input_validator(user_input, path);
-			free(input);
+			safe_free(&input);
 			memclean(user_input);
 		}
 	} while (flag);
@@ -54,6 +47,7 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 /**
  * attycheck - checks for interactive and non-interactive mode.
  * @flag: turns off flag.
+ * @path: the path found.
  * Return: wether flag turns on or off.
  */
 int attycheck(int flag, char **path)
@@ -62,7 +56,6 @@ int attycheck(int flag, char **path)
 	{
 		flag = 0;
 		memclean(path);
-		return (flag);
 	}
 	else
 	{

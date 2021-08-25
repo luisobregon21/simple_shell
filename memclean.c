@@ -11,6 +11,24 @@ void memclean(char **arr)
 	for (i = 0; arr[i] != NULL; i++)
 	{
 		free(arr[i]);
+		arr[i] = NULL;
 	}
 	free(arr);
+}
+
+/**
+ * safe_free - free with NULL checks
+ * @ptr: the element to be freed
+ */
+void safe_free(char **ptr)
+{
+	if (*ptr == NULL)
+	{
+		return;
+	}
+	else
+	{
+		free(*ptr);
+		*ptr = NULL;
+	}
 }

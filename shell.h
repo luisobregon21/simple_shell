@@ -22,5 +22,6 @@ void input_validator(char **usr_input, char **path);
 char *concatenator(char *path, char *userinput);
 void executor(char *full_path, char **user_input);
 void memclean(char **arr);
+void safe_free(char **ptr);
 
 #endif
