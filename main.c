@@ -1,5 +1,11 @@
 #include "shell.h"
-
+/**
+ * EOF_handler - function for signal
+ * @ctrl: accepts signal
+ */
+void EOF_handler(int ctrl)
+{
+}
 /**
  * main - executes commands based on user input
  * @ac: unused
@@ -21,7 +27,12 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		input = userinput();
 		if (input == NULL)
 			continue;
-
+		if (signal(SIGQUIT, EOF_handler) == 0)
+		{
+			safe_free(&input);
+			memclean(path);
+			exit(0);
+		}
 		if (_strcmp(input, "exit") == 1)
 		{
 			safe_free(&input);
@@ -39,7 +50,6 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 			input_validator(user_input, path);
 			safe_free(&input);
 			memclean(user_input);
-
 		}
 		if (flag == 0)
 			memclean(path);
