@@ -40,10 +40,11 @@ void safe_free(char **ptr)
 int space_check(char *sentence)
 {
 	int i;
+
 	for (i = 0; sentence[i] != '\0'; i++)
 	{
-		if(sentence[i] != 32)
-			return(0);
+		if (sentence[i] != 32)
+			return (0);
 	}
 	return (1);
 }

@@ -159,7 +159,7 @@ char *concatenator(char *path, char *userinput)
  * _strcmp - compares two string
  * @s1: first string
  * @s2: second string
- * return: 1 if match
+ * Return: 1 if match
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -167,7 +167,7 @@ int _strcmp(char *s1, char *s2)
 
 	for (i = 0, j = 0; s1[i] != '\0' || s2[j] != '\0'; i++, j++)
 	{
-		while(s1[i] == 32)
+		while (s1[i] == 32)
 		{
 			i++;
 		}
