@@ -22,13 +22,13 @@ int main(int ac, char **av __attribute__((unused)), char **env)
 		if (input == NULL)
 			continue;
 
-		if (_strncmp(input, "exit", 4) == 0)
+		if (_strcmp(input, "exit") == 1)
 		{
 			safe_free(&input);
 			memclean(path);
 			exit(0);
 		}
-		else if (_strncmp(input, "env", 3) == 0)
+		else if (_strcmp(input, "env") == 1)
 		{
 			envprinter(env, path);
 			safe_free(&input);

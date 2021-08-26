@@ -32,3 +32,18 @@ void safe_free(char **ptr)
 		*ptr = NULL;
 	}
 }
+/**
+ * space_check - checks for spaces in user input
+ * @sentence: user input
+ * Return: 1 if only spaces
+ */
+int space_check(char *sentence)
+{
+	int i;
+	for (i = 0; sentence[i] != '\0'; i++)
+	{
+		if(sentence[i] != 32)
+			return(0);
+	}
+	return (1);
+}

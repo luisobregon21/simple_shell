@@ -6,7 +6,7 @@
  * @n: the number of bytes it will compare.
  * Return: 0 if the strings are the same.
  */
-int _strncmp(const char *s1, const char *s2, size_t n)
+int _strncmp(char *s1, char *s2, size_t n)
 {
 	size_t index;
 

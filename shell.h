@@ -12,7 +12,8 @@
 int attycheck(int flag);
 int _putchar(char c);
 char *userinput(void);
-int _strncmp(const char *s1, const char *s2, size_t n);
+int _strncmp(char *s1, char *s2, size_t n);
+int _strcmp(char *s1, char *s2);
 void envprinter(char **env, char **path);
 char **split_string(char *string);
 int _strlen(char *string);
@@ -23,5 +24,6 @@ char *concatenator(char *path, char *userinput);
 void executor(char *full_path, char **user_input);
 void memclean(char **arr);
 void safe_free(char **ptr);
+int space_check(char *sentence);
 
 #endif
