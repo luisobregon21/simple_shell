@@ -51,6 +51,11 @@ char *userinput(void)
 
 	len = getline(&sentence, &size, stdin);
 	sentence[len - 1] = '\0';
+	if (space_check(sentence) == 1)
+	{
+		free(sentence);
+		sentence = NULL;
+	}
 	return (sentence);
 }
 /**
